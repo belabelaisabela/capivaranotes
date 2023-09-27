@@ -1,0 +1,59 @@
+body {
+    font-family: sans-serif;
+    background-color: lightgray;
+}
+
+html, .fullscreen {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container {
+    margin: auto;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue
+}
+
+#entrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#entrada input,
+#entrada textarea,
+#entrada select,
+#entrada button {
+    margin: 10px 0;
+    width: 100%;
+}
+
+#resultado {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.item {
+    width: 85%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border: 20px solid #ccc;
+    margin: 5px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+}
+
+img {
+    max-width: 100%;
+}

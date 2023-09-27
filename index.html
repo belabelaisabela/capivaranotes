@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="exemplo de fallback">
+    <title>Minha primeira PWA</title>
+    <link rel="apple-touch-icon" href="images/icon-256.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/db.js"></script>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1535" />
+
+</head>
+
+<body class="fullscreen">
+    <div class="container">
+        <h1 class="title">Minhas Anotações</h1>
+        <div style="text-align: center;">
+            <img src="/images/capibaraNotes.png" alt="pwa" width="256" height="256">
+        </div>
+        <div id="entrada">
+            <input type="text" id="titulo" placeholder="Titulo">
+            <textarea id="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
+            <input type="date" id="data">
+
+            <select name="select" placeholder="Categoria" id="categoria">
+                <option value="categoria" selected>Categoria</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Escola">Escola</option>
+                <option value="Curso">Curso</option>
+                <option value="Tarefas de casa">Tarefas de casa</option>
+              </select>
+
+            <button id="btnCadastro">Cadastrar</button>
+            <button id="btnCarregar">Carregar Minhas Anotações</button>
+        </div>
+        <div id="resultados"></div>
+    </div>
+</body>
+
+</html>
