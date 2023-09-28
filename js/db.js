@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', async event =>{
     criarDB();
     document.getElementById('btnCadastro').addEventListener('click', adicionarAnotacao);
     document.getElementById('btnCarregar').addEventListener('click', buscarTodasAnotacoes);
+    document.getElementById('btnRemover').addEventListener('click', removerAnotacao);
 });
 
 async function buscarTodasAnotacoes(){
@@ -62,6 +63,25 @@ async function adicionarAnotacao() {
         console.log('Registro adicionado com sucesso!');
     } catch (error) {
         console.error('Erro ao adicionar registro:', error);
+        tx.abort();
+    }
+}
+
+async function removerAnotacao() {
+    const tituloRemover = prompt('Qual anotação deseja excluir:');
+    if (!tituloRemover) {
+        console.log('Remoção cancelada.');
+        return;
+    }
+    const tx = await db.transaction('anotacao', 'readwrite');
+    const store = tx.objectStore('anotacao');
+    try {
+        await store.delete(tituloRemover);
+        await tx.done;
+        console.log('Anotação excluída com sucesso!');
+        buscarTodasAnotacoes();
+    } catch (error) {
+        console.error('Erro ao excluir anotação.', error);
         tx.abort();
     }
 }

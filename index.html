@@ -20,11 +20,11 @@
     <div class="container">
         <h1 class="title">Minhas Anotações</h1>
         <div style="text-align: center;">
-            <img src="/images/capibaraNotes.png" alt="pwa" width="256" height="256">
+            <img src="/images/bloco.png" alt="pwa" width="256" height="256">
         </div>
         <div id="entrada">
             <input type="text" id="titulo" placeholder="Titulo">
-            <textarea id="descricao" cols="30" rows="10" placeholder="Descrição"></textarea>
+            <textarea id="descricao" cols="30" rows="10" placeholder="Texto"></textarea>
             <input type="date" id="data">
 
             <select name="select" placeholder="Categoria" id="categoria">
@@ -35,8 +35,9 @@
                 <option value="Tarefas de casa">Tarefas de casa</option>
               </select>
 
-            <button id="btnCadastro">Cadastrar</button>
-            <button id="btnCarregar">Carregar Minhas Anotações</button>
+            <button class="botaocadastro" id="btnCadastro">Cadastrar</button>
+            <button class="botaocarrega" id="btnCarregar">Carregar minhas anotações</button>
+            <button class="botaoremove" id="btnRemover">Remover uma anotação</button>
         </div>
         <div id="resultados"></div>
     </div>

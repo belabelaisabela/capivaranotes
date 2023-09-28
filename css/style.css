@@ -1,6 +1,6 @@
 body {
-    font-family: sans-serif;
-    background-color: lightgray;
+    font-family: Georgia, serif;
+    background-color: #FFDBF1;
 }
 
 html, .fullscreen {
@@ -16,9 +16,9 @@ html, .fullscreen {
 }
 
 .title {
-    font-size: 3rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: darkblue
+    font-size: 30px;
+    font-family: Georgia, serif;
+    color: #D00881;
 }
 
 #entrada {
@@ -29,10 +29,13 @@ html, .fullscreen {
 
 #entrada input,
 #entrada textarea,
-#entrada select,
-#entrada button {
-    margin: 10px 0;
+#entrada select{
+    margin: 8px 0;
     width: 100%;
+}
+
+#entrada button{
+    margin: 8px 0;
 }
 
 #resultado {
@@ -44,9 +47,9 @@ html, .fullscreen {
 .item {
     width: 85%;
     height: 100%;
-    background-color: #f0f0f0;
-    border: 20px solid #ccc;
-    margin: 5px; 
+    background-color: #FFD5EE;
+    border: 20px solid #D00881;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -54,6 +57,36 @@ html, .fullscreen {
     text-align: center; 
 }
 
+.item:hover,
+.item:focus {
+  background-color: #FF8CD2;
+  color: white;
+}
+
 img {
     max-width: 100%;
+}
+
+.botaocadastro{
+    background-color: #D00881;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+}
+
+.botaocarrega{
+    background-color: #D00881;
+    color: white;
+    width: 175px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.botaoremove{
+    background-color: #D00881;
+    width: 155px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
 }

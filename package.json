@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "idb": "^7.1.1",
     "vite": "^4.4.5",
-    "idb": "7.1.1",
     "workbox-cacheable-response": "7.0.0",
     "workbox-expiration": "7.0.0",
     "workbox-recipes": "7.0.0",
