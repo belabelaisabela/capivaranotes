@@ -39,6 +39,30 @@
             <button class="botaocarrega" id="btnCarregar">Carregar minhas anotações</button>
             <button class="botaoremove" id="btnRemover">Remover uma anotação</button>
             <button class="botaobusca" id="btnBuscar">Buscar uma anotação</button>
+            <h1 class="title">Atualização</h1>
+                    <label for="tituloUpdate">Qual nota você deseja atualizar?</label>
+                <div class="searchBar">
+                    <input type="text" id="tituloUpdate" placeholder="Título">
+                    <br/>
+                    <button id="btnPreenche" class="btnbusca" title="Buscar">Buscar</button>
+                </div>
+            <div id="updateForm">
+                <label for="categoriaUpdate">Qual será a nova categoria?</label>
+                <br/>
+                <input type="text" id="categoriaUpdate" placeholder="Categoria" autocomplete="off" required>
+                <br/>
+                <label for="descricaoUpdate">Qual será a nova descrição?</label>
+                <br/>
+                <textarea id="descricaoUpdate" cols="30" rows="10" placeholder="Descrição"></textarea>
+                <br/>
+                <label for="dataUpdate">E a data nova?</label>
+                <br/>
+                <input type="date" id="dataUpdate">
+                <div>
+                    <button id="btnCancelaAtualizacao" class="botaoform">Cancelar</button>
+                    <button id="btnAtualiza" type="submit" class="botaoform">Atualizar</button>
+                </div>
+            </div>
         </div>
         <div id="resultados"></div>
     </div>

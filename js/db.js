@@ -28,6 +28,8 @@ window.addEventListener('DOMContentLoaded', async event =>{
     document.getElementById('btnCarregar').addEventListener('click', buscarTodasAnotacoes);
     document.getElementById('btnRemover').addEventListener('click', removerAnotacao);
     document.getElementById('btnBuscar').addEventListener('click', buscarAnotacao);
+    document.getElementById('btnAtualiza').addEventListener('click', atualizarAnotacao);
+    document.getElementById('btnCancelaAtualizacao').addEventListener('click', fecharAtualizacao);
 });
 
 async function buscarTodasAnotacoes(){
@@ -67,6 +69,36 @@ async function adicionarAnotacao() {
         tx.abort();
     }
 }
+
+async function atualizarAnotacao(){
+    const titulo = document.getElementById('tituloUpdate').value;
+    const categoria = document.getElementById('categoriaUpdate').value;
+    const data = document.getElementById('dataUpdate').value;
+    const descricao = document.getElementById('descricaoUpdate').value;
+
+    const tx = await db.transaction('anotacao', 'readwrite');
+    const store = tx.objectStore('anotacao');
+    try {
+        await store.put({ titulo: titulo, categoria: categoria, descricao: descricao, data: data });
+        await tx.done;
+        fecharAtualizacao();
+        buscarTodasAnotacoes();
+        console.log('Anotação atualizada com sucesso!');
+    } catch (error) {
+        console.error('Erro ao atualziar anotação:', error);
+        tx.abort();
+    }
+}
+
+function fecharAtualizacao() {
+    document.getElementById('tituloUpdate').removeAttribute('readonly');
+    document.getElementById('tituloUpdate').value = '';
+    document.getElementById('categoriaUpdate').value = '';
+    document.getElementById('dataUpdate').value = '';
+    document.getElementById('descricaoUpdate').value = '';
+    document.getElementById('updateForm').style.display = 'none';
+}
+
 
 async function removerAnotacao() {
     const tituloRemover = prompt('Qual anotação deseja excluir:');
@@ -108,6 +140,7 @@ async function buscarAnotacao() {
         listagem(`<p>Nenhuma anotação encontrada com esse nome.</p>`);
     }
 }
+
 
 function limparCampos() {
     document.getElementById("titulo").value = '';

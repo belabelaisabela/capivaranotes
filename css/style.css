@@ -1,6 +1,7 @@
 body {
     font-family: Georgia, serif;
     background-color: #FFDBF1;
+    text-align: center;
 }
 
 html, .fullscreen {
@@ -94,6 +95,22 @@ img {
 .botaobusca{
     background-color: #D00881;
     width: 145px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+}
+
+.btnbusca{
+    background-color: #D00881;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+}
+
+.botaoform{
+    background-color: #D00881;
+    width: 100px;
     height: 40px;
     color: white;
     border-radius: 10px;
