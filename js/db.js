@@ -27,6 +27,7 @@ window.addEventListener('DOMContentLoaded', async event =>{
     document.getElementById('btnCadastro').addEventListener('click', adicionarAnotacao);
     document.getElementById('btnCarregar').addEventListener('click', buscarTodasAnotacoes);
     document.getElementById('btnRemover').addEventListener('click', removerAnotacao);
+    document.getElementById('btnBuscar').addEventListener('click', buscarAnotacao);
 });
 
 async function buscarTodasAnotacoes(){
@@ -83,6 +84,28 @@ async function removerAnotacao() {
     } catch (error) {
         console.error('Erro ao excluir anotação.', error);
         tx.abort();
+    }
+}
+
+async function buscarAnotacao() {
+    let busca = document.getElementById("busca").value;
+    const tx = await db.transaction('anotacao', 'readonly');
+    const store = tx.objectStore('anotacao');
+    const index = store.index(titulo);
+    const anotacoes = await index.getAll(IDBKeyRange.only(busca));
+    if (anotacoes.length > 0) {
+        const divLista = anotacoes.map(anotacao => {
+            return `<div class="item">
+            <p>Anotação</p>
+            <p>Título: ${anotacao.titulo}</p>
+            <p>Texto: ${anotacao.descricao}</p>
+            <p>Data: ${anotacao.data}</p>
+            <p>Categorias: ${anotacao.categoria}}</p>
+            </div>`;
+        });
+        listagem(divLista.join(''));
+    } else {
+        listagem(`<p>Nenhuma anotação encontrada com esse nome.</p>`);
     }
 }
 
